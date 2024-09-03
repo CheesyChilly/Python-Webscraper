@@ -1,10 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from flask import Flask, render_template
-import json
-
-app = Flask(__name__)
 
 proxy = "203.115.101.55:80"
 
