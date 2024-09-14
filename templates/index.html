@@ -1,31 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Data Scraper</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Book Information</title>
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css" />
-		<script
-			defer
-			src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+			href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+		<style>
+			body {
+				background-color: #a0beff; /* Light grey background for the body */
+			}
+			.table-container {
+				margin: 20px auto;
+				max-width: 1000px;
+				background-color: #ffffff; /* White background for the table container */
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+			.table th {
+				background-color: #f0f0f0; /* Slightly darker grey for header background */
+				color: #333; /* Dark grey text for headers */
+			}
+			.table td {
+				background-color: #ffffff; /* White background for table cells */
+				color: #666; /* Medium grey text for table cells */
+			}
+			.table tr:nth-child(even) td {
+				background-color: #f9f9f9; /* Light grey for even rows */
+			}
+			.table tr:hover td {
+				background-color: #eaeaea; /* Slightly darker grey for hover effect */
+			}
+			h1 {
+				color: #333; /* Dark grey text color for the header */
+				margin-bottom: 20px;
+			}
+		</style>
 	</head>
-	<body class="has-background-light">
-		<h1 class="is-size-2 has-text-centered">Book Information</h1>
-		<table class="table has-background-light">
-			<tr>
-				<th>Title</th>
-				<th>Rating</th>
-				<th>Price</th>
-			</tr>
-			{% for title, rating, price in info %}
-			<tr>
-				<td>{{ title }}</td>
-				<td>{{ rating }}</td>
-				<td>£{{ price }}</td>
-			</tr>
-			{% endfor %}
-		</table>
+	<body>
+		<section class="section">
+			<div class="container">
+				<h1 class="title is-size-2 has-text-centered">
+					Book Information
+				</h1>
+				<div class="table-container">
+					<table
+						class="table is-bordered is-striped is-hoverable is-fullwidth">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Rating</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for title, rating, price in info %}
+							<tr>
+								<td>{{ title }}</td>
+								<td>{{ rating }}</td>
+								<td>£{{ price }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
 	</body>
 </html>

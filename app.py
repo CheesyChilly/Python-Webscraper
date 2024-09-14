@@ -38,7 +38,7 @@ def index():
             titles = book.find("h3").find("a")["title"]
             rating = book.find("p")["class"][1]
             price = book.find(class_="price_color").text
-            # price = float(prices[2:])
+            price = float(price[2:])
             info.append([titles, rating, price])
     df = pd.DataFrame(info, columns=['Title', 'Star Rating', 'Price'])
     csv_path = os.path.join(os.getcwd(), 'dataFromFlask.csv')
